@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[]{algorithmicx}
+\usepackage{enumitem}
+\usepackage{fancyvrb}\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+\usepackage{hyperref}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\newcommand{\makenonemptybox}[2]{%
+%\par\nobreak\vspace{\ht\strutbox}\noindent
+\item[]
+\fbox{% added -2\fboxrule to specified width to avoid overfull hboxes
+% and removed the -2\fboxsep from height specification (image not updated)
+% because in MWE 2cm is should be height of contents excluding sep and frame
+\parbox[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+  \hrule width \hsize height 0pt
+  #2
+ }%
+}%
+\par\vspace{\ht\strutbox}
+}
+\makeatother
+
+\begin{document}
+%todo [points for homework 0]
+\lhead{{\bf CSCI 3104, Algorithms \\ Homework 2B (55 points)} }
+\rhead{Name: \fbox{% Place your name here and delete the next time
+\phantom{This is a really long name}} 
+\\ ID: \fbox{ % Place your ID here and delete the next time
+\phantom{This is a student ID}} 
+\\ {\bf Escobedo \& Jahagirdar\\ Summer 2020, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textit{Advice 1}:\ For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+%\vspace{-3mm} 
+
+\textit{Advice 2}:\ Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.\\
+%\vspace{-3mm} 
+
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed}, we cannot accept hand-written solutions. Here's a short intro to \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{\textbf{Latex}.}
+	 \item In this homework we denote the asymptomatic \textit{Big-O} notation by $\mathcal{O}$ and \textit{Small-O} notation is represented as $o$. 
+	\item We recommend using online Latex editor \href{https://www.overleaf.com/}{\textbf{Overleaf}}. Download the \textbf{.tex} file from Canvas and upload it on overleaf to edit.
+	%todo add link of gradescope
+	\item You should submit your work through \href{https://www.gradescope.com}{\textbf{Gradescope}}  only.
+	\item If you don't have an account on it, sign up for one using your CU email. You should have gotten an email to sign up. If your name based CU email doesn't work, try the identikey@colorado.edu version. 
+	\item Gradescope will only accept \textbf{.pdf} files (except for code files that should be submitted separately on Canvas if a problem set has them) and \textbf{try to fit your work in the box provided}. 
+	\item You cannot submit a pdf which has less pages than what we provided you as Gradescope won't allow it.
+   
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+\pagebreak
+
+\subsection*{Piazza threads for hints and further discussion}
+\begin{center}
+    \begin{tabular}{|c|}
+    \hline
+    Piazza Threads \\ [0.5ex] 
+    \hline \hline 
+    \href{https://piazza.com/class/ka2roz7rb9m3j4?cid=36}{Question 1}\\
+    \href{https://piazza.com/class/ka2roz7rb9m3j4?cid=37}{Question 2}\\
+    \href{https://piazza.com/class/ka2roz7rb9m3j4?cid=38}{Question 3}\\
+     \href{https://piazza.com/class/ka2roz7rb9m3j4?cid=39}{Question 4}\\
+    
+    \hline
+    \end{tabular}
+\end{center}
+
+\textbf{Recommended reading}\\
+Divide & Conquer; Recurrence Relations: Ch. 2 →  2.3; Ch. 4 →  4.1, 4.2, 4.3, 4.4, 4.5 \\
+Quicksort: Chapter 7 complete \\
+Efficient Data Structures: Hash Tables: Ch. 11 →  Complete \\
+
+
+\pagebreak
+
+\begin{enumerate}
+
+
+
+	
+	\item{
+	\itshape  (20 pts)
+	Let $A = \langle a_{1}, a_{2}, \ldots, a_{n} \rangle$ be an array of numbers. Let's define a \textit{'flip'} as a pair of distinct indices $i, j \in \{ 1, 2, \ldots, n\}$ such that $i < j$ but $a_{i} > a_{j}$. That is, $a_{i}$ and $a_{j}$ are out of order.\\ For example - In the array A = [1, 3, 5, 2, 4, 6], (3, 2), (5, 2) and (5, 4) are the only flips i.e. the total number of flips is 3. (Note that in this example the indices are the same as the actual values) \\ \\
+	Design a divide-and-conquer algorithm with a runtime of $\mathcal{O}(n\log(n))$ for computing the number of flips. Your algorithm has to be a divide and conquer algorithm that is modified from the Merge Sort algorithm. Explain how your algorithm works, including pseudocode. You can add a picture of your pseudo-code or properly commented code. 
+	}
+	\makenonemptybox{5in}{
+
+	}
+	\makenonemptybox{7.5in}{
+	}
+	
+	
+
+	
+	\item{\itshape (10 pts) For the following problems, you must use the pseudocode for \textit{QuickSort} and \textit{Partition}
+in Section 7.1 of the Introduction to Algorithms 3rd edition (CLRS) and the array A =
+[22, 40, 67, 55, 10, 92, 66].
+	}
+	\begin{enumerate}[label=(\alph*)]
+	
+	\item
+	\textit{(3 pts) What is the value of the pivot in the call \textit{Partition}(A; 1; 7)?} (Array indexing starts at 1 as per the convention in the book)
+	\makenonemptybox{3in}{
+	}
+	\clearpage
+	\item
+	\textit{(3 pts) What is the index of that pivot value at the end of that call to \textit{Partition}?}
+	\makenonemptybox{3in}{
+	}
+	
+	\item
+\textit{(4 pts) On the next recursive call to Quicksort, what sub-array does \textit{Partition} evaluate?
+(Give the indices specifying the subarray.)?}
+	\makenonemptybox{3in}{
+	}
+	
+	\end{enumerate}
+	\clearpage
+	\item{\itshape (15 pts) Suppose in quicksort, we have access to an algorithm which chooses a pivot such that, the ratio of the size of the two subarrays divided by the pivot is a \textbf{constant} $k$. i.e an array of size $n$ is divided into two arrays, the first array is of size $n_1 = \frac{nk}{k+1}$ and the second array is of size $n_2 = \frac{n}{k+1}$ so that the ratio $\frac{n_1}{n_2} = k$ a constant. 
+	}
+	\begin{enumerate}[label=(\alph*)]
+	
+	\item{\itshape
+    (3 pts) Given an array, what value of $k$ will result in the best partitioning?}
+    \makenonemptybox{3in}{
+	}
+	\clearpage
+    \item{\itshape
+    (9 pts) Write down a recurrence relation for this version of QuickSort, and solve it asymptotically using \textbf{recurstion tree} method. For this part of the question assume $k= 3$. Show your work, write down the first few levels of the tree, identify the pattern and solve. Assume that the time it takes to find the pivot is $\Theta$(n) for lists of length $n$.}
+    \makenonemptybox{6.5in}{
+	}
+	
+	\item{ \itshape
+(3 pts) Provide a verbal explanation of how this Partition algorithm affects the running
+time of QuickSort, in comparison with the case where the best possible pivot is
+always used. Does the value of $k$ affect the running time?}
+	\makenonemptybox{3in}{
+	}
+		\end{enumerate}
+    \clearpage
+    
+    	\item{ \itshape 
+	    (10 pts) Consider the hash function $h(k) = \floor*{100k}$ for all keys $k$ for a table of size 100. You have three applications.
+	    \begin{itemize}
+	        \item \textbf{Application 1}: Keys are  generated uniformly at random from the interval $[0.3, 0.8]$.
+	        \item \textbf{Application 2}: Keys are  generated uniformly at random from the interval $[0.1, 0.4] \cup [0.6, 0.9]$.
+	        \item \textbf{Application 3}: Keys are  generated uniformly at random from the interval $[0, 1]$.
+	    \end{itemize}
+	}
+		\begin{enumerate}[label=(\alph*)]
+		\item {\itshape (2 pts) For which application does the hash function $h(k)$ perform worse? Please explain/justify adequately your answer. }
+		\makenonemptybox{3in}{
+		}
+		\clearpage
+		\item {\itshape (3 pts) In each of the three applications does the hash function satisfy the uniform hashing property? Please explain/justify adequately your answer. }
+		\makenonemptybox{3in}{
+		}
+		\clearpage
+		\item {\itshape (5 pts) Suppose you have $n$ keys in total for each application. What is the resulting load factor $\alpha$ for each application? Assume that in each application only slots of the hash table that have a chance of being filled are considered when calculating $\alpha$. }
+		\makenonemptybox{3in}{
+		}
+		
+    \end{enumerate}
+
+
+	
+	
+\clearpage
+    
+    \item{\itshape \textbf{Extra Credit (5\% of total homework grade)}
+    For this extra credit question, please refer the leetcode link provided below or click \href{https://leetcode.com/problems/design-hashmap/}{here}. Multiple solutions exist to this question ranging from brute force to the most optimal one. Points will be provided based on Time and Space Complexities relative to that of the most optimal solution. \\
+    
+    \textbf{Note}: The brute force approach in this question would be to create an array of size $10^6$ and directly access the key using the index of the array. For this question, we expect you to perform collision handling once you obtain a hash value for a particular key. \\
+    
+    Please provide your solution with proper comments which carries points as well.}
+    
+   \url{https://leetcode.com/problems/design-hashmap/}
+
+    % Paste your code in the verbatim tag below
+\begin{verbatim}
+Replace this text with your source code inside of the .tex document
+\end{verbatim}
+	
+
+\end{enumerate}
+\end{document}
+
+
